@@ -1,7 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const db = require('./models');
-const router = require('./api_for_ExchangeApp/routes/routes')
+const router = require('./routes/routes');
+const authJwt = require('./middleware/authJwt');
+const authRoutes = require('./routes/auth.routes');
 
 const PORT = 8080;
 
@@ -30,7 +32,12 @@ app.get('/', (req, res) => {
     res.json({"message":"Hello from server"})
 });
 
+app.get('/test', [authJwt], (req, res) =>{
+    res.send({message: "it works!"})
+})
+
 router(app);
+authRoutes(app);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)

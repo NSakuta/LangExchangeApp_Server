@@ -7,7 +7,7 @@ const db = {}; // data base
 
 db.mongoose = mongoose;
 db.url = dbConfig.url; // database url is db.config.js -> url
-//db.users = require('./user.model')(mongoose) // connection to user model
+//db.user = require('./user.model')(mongoose) // connection to user model
 
 module.exports = db;
 
