@@ -1,17 +1,6 @@
 module.exports = app => {
 
     const router = require('express').Router();
-    // const uploadMdlware = require('../middleware/upload');
-
-    // router.post('/upload', uploadMdlware.single('avatar')), (req, res) => { // single -> отвечает за количество файлов которое можно загрузить
-    //     try {
-    //         if(req.file) {
-    //             res.json(req.file)
-    //         }
-    //     }catch(err) {
-    //         console.log(err.message)
-    //     }
-    // };
 
     const imageUpload = require('../middleware/upload')
 

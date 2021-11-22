@@ -57,13 +57,5 @@ app.listen(PORT, () => {
 });
 
 
-////////
-
-const bodyParser = require('body-parser');
-const ejs = require('ejs');
-app.set('view engine', 'ejs');
-
-
-
 
 
