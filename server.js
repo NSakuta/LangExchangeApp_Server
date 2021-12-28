@@ -47,6 +47,13 @@ app.get('/test', [authJwt], (req, res) =>{
 app.get('/api/upload', (req, res) =>{
     res.send({message: "upload!"})
 })
+/////////////////////////////////
+app.use(express.static('client/build'))
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+});
+
+////////////////////////////////
 
 router(app);
 authRoutes(app);

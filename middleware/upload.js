@@ -7,7 +7,7 @@ const storage = multer.diskStorage({
         const now = new Date().toISOString(); 
         const date = now.replace(/:/g, '-'); 
           cb(null, file.fieldname + '_' + date 
-            + path.extname(file.originalname)) //file.originalname
+            + path.extname(file.originalname)) 
     }
 });
 
@@ -18,13 +18,12 @@ const imageUpload = multer({
       fileSize: 1000000 // 1000000 Bytes = 1 MB
     },
     fileFilter(req, file, cb) {
-        console.log('filefilter: ', file)
       if (!file.originalname.match(/\.(png|jpg)$/)) { 
          return cb(new Error('Please upload a Image'))
        }
      cb(undefined, true)
   }
-}) 
+})  
 
 module.exports = multer({storage, imageUpload})
 
