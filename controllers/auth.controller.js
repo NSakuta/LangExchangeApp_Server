@@ -18,6 +18,7 @@ exports.signup = (req, res) => {
             gender: req.body.gender,
             age: req.body.age,
             img: req.body.img,
+            about: req.body.about,
             zip: req.body.zip,
             interests: req.body.interests,
             description: req.body.description,

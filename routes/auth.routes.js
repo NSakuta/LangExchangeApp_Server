@@ -1,6 +1,8 @@
 const verifySignUp = require("../middleware/verifySignUp");
 const controller = require("../controllers/auth.controller");
 const router = require('express').Router();
+const imageUpload = require('../middleware/upload')
+
 
 module.exports = function(app) {
   app.use(function(req, res, next) {

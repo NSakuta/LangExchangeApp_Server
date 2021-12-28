@@ -2,6 +2,7 @@ module.exports = app => {
     const users = require('../controllers/user.controller');
     const messages = require('../controllers/message.controller');
     const router = require('express').Router();
+    const uploadMdlware = require('../middleware/upload');
 
     const authJwt = require('../middleware/authJwt');
 
