@@ -30,7 +30,36 @@ exports.getUserById = (req, res) => {
         })
 }
 
+// Get User by Name
+
+exports.getUserByName = (req, res) => {
+    User.find({"firstName": req.params.firstName})
+        .then(data => {
+            res.send(data)
+            })
+        .catch(err => {
+            res.status(500).send({
+                message: err.message || 'Some error occurred while searching user by name'
+            })
+        })
+}
+
+// Get User by Email
+
+exports.getUserByEmail = (req, res) => {
+    User.find({"email": req.params.email})
+        .then(data => {
+            res.send(data)
+            })
+        .catch(err => {
+            res.status(500).send({
+                message: err.message || 'Some error occurred while searching user by name'
+            })
+        })
+}
+
 //Update (get)
+
 
 exports.update = (req, res) => {
     if(!req.body) {

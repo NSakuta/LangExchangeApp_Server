@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 
 const userSchema = new mongoose.Schema({
-    firstName: {type: String, lowercase: true, required: [true, "can't be blank"], match: [/^[a-zA-Z]+$/, 'is invalid']},
-    lastName: {type: String, lowercase: true, required: [true, "can't be blank"], match: [/^[a-zA-Z]+$/, 'is invalid']},
+    firstName: {type: String, required: [true, "can't be blank"], match: [/^[a-zA-Z]+$/, 'is invalid']},
+    lastName: {type: String, required: [true, "can't be blank"], match: [/^[a-zA-Z]+$/, 'is invalid']},
     email: {type: String, lowercase: true, unique: true, required: [true, "can't be blank"], match: [/\S+@\S+\.\S+/, 'is invalid']},
-    password: String,
+    password: {type: String, required: [true, "can't be blank"]},
     gender: String,
     age: { type: Number, min: 18, max: 65, required: true },
     img: String,
