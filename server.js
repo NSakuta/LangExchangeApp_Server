@@ -37,6 +37,8 @@ db.mongoose.connect(db.url, { // Promise
     process.exit()
 })
 
+app.use(express.static(path.join(__dirname, '../../LangExchange_WEB_App/my-app/build'))) 
+
 app.get('/', (req, res) => {
     res.json({"message":"Hello from server"})
 });
@@ -48,16 +50,21 @@ app.get('/api/upload', (req, res) =>{
     res.send({message: "upload!"})
 })
 /////////////////////////////////
-app.use(express.static('client/build'))
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-});
+
+// app.use(express.static('client/build'))
+// app.get('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+// });
 
 ////////////////////////////////
 
 router(app);
 authRoutes(app);
 uploadRouter(app);
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../LangExchange_WEB_App/my-app/build/index.html'));
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
