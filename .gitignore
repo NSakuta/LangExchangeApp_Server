@@ -109,3 +109,6 @@ dist
 
 # Portable Network Graphics
 *.png
+
+# Config dir
+config/
