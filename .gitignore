@@ -111,4 +111,4 @@ dist
 *.png
 
 # Config dir
-.config/
+api_for_ExchangeApp/config/
