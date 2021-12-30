@@ -22,7 +22,7 @@ app.use(cors(corsOption));
 app.use(express.json()); // awaiting of data from server, all data in json format
 app.use(express.urlencoded({extended: true}));
 app.use('/images', express.static(path.join(__dirname, 'images'))) // путь к папке в которой храняться файлы
-//app.set("images", path.join(__dirname, "images"));
+app.set("images", path.join(__dirname, "images"));
 
 console.log('dirname: ', __dirname)
 
@@ -37,7 +37,7 @@ db.mongoose.connect(db.url, { // Promise
     process.exit()
 })
 
-app.use(express.static(path.join(__dirname, '../../LangExchange_WEB_App/my-app/build'))) 
+//app.use(express.static(path.join(__dirname, '../../LangExchange_WEB_App/my-app/build'))) 
 
 app.get('/', (req, res) => {
     res.json({"message":"Hello from server"})
@@ -62,9 +62,9 @@ router(app);
 authRoutes(app);
 uploadRouter(app);
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../LangExchange_WEB_App/my-app/build/index.html'));
-});
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../../LangExchange_WEB_App/my-app/build/index.html'));
+// });
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`)
