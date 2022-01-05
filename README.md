@@ -11,8 +11,6 @@ Application functions:
     Change profile information
     Add people to favorites 
 
-/////////////////////////////////////
-
 Backend:
 
     Node.js and 'express' library was used to build the backend
@@ -23,7 +21,6 @@ Backend:
  
 
                     API Endpoints
-
 Authorization
 
     (post) http://ec2-3-21-19-104.us-east-2.compute.amazonaws.com/api/auth/signup/ - post a new user
